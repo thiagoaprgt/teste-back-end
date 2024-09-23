@@ -1,3 +1,14 @@
+# Configurando o ambiente docker
+
+instalar o docker na máquina
+no terminal entrar na pasta teste-back-end e usar os comandos:
+
+    docker composer up -d
+    docker exec -it teste-back-end-app-1 bash
+    php artisan key:generate
+
+
+
 # Teste prático para Back-End 
 ***
 
