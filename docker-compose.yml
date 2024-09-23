@@ -1,0 +1,40 @@
+# portas "porta do container":"porta da máquina" 
+# /var/www/html
+#para entrar dentro do container do docker do php: docker exec -it (colocar aqui o container_name) bash
+#para entrar dentro do container do docker do mariadb e nginx: docker exec -it (colocar aqui o container_name) /bin/bash
+#para entra no terminal do mysql: mysql -u root -p
+#para entra no terminal do mariadb: mariadb -u root -p
+#lista as redes docker: docker network ls
+#ver os containers que estão dentro de uma rede: docker network inspect (nome da rede)
+
+
+services:
+    # image project
+  app:
+      build:
+          context: .
+          dockerfile: Dockerfile
+      restart: unless-stopped
+      working_dir: /var/www/
+      volumes:
+          - ./:/var/www        
+      networks:
+          - laravel
+
+  # nginx
+  nginx:
+      image: nginx:alpine
+      restart: unless-stopped
+      ports:
+          - "8989:80"
+      volumes:
+          - ./:/var/www
+          - ./docker/nginx/:/etc/nginx/conf.d/
+      networks:
+          - laravel
+
+networks:
+  laravel:
+    driver: bridge
+    
+  
