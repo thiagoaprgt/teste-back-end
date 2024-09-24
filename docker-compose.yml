@@ -7,20 +7,24 @@
 #lista as redes docker: docker network ls
 #ver os containers que estão dentro de uma rede: docker network inspect (nome da rede)
 
+version: "3.7"
 
 services:
     # image project
   app:
     container_name: php
     build:
-        context: .
-        dockerfile: Dockerfile_php
+      context: .
+      dockerfile: Dockerfile_php
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
         - ./:/var/www        
     networks:
-        - laravel
+      - laravel
+
+  
+    
 
   # nginx
   nginx:
@@ -36,7 +40,7 @@ services:
 
   db:
     build:
-        context: .
+        context: ../docker/dockerfiles
         dockerfile: Dockerfile_mariadb
     container_name: db
     restart: always

@@ -1,0 +1,7 @@
+node_modules
+npm-debug.log
+Dockerfile_mariadb
+Dockerfile_nodejs
+Dockerfile_php
+docker-compose.yml
+.dockerignore
