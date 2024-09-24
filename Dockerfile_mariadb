@@ -1,0 +1,7 @@
+FROM mariadb
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+   vim
+
+RUN mkdir mariadb_config
