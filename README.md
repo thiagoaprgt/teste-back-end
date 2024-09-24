@@ -8,38 +8,9 @@ no terminal entrar na pasta teste-back-end e usar os comandos:
     composer install
     composer update
     php artisan key:generate
-
-# Configurando o banco de dados Maria DB
-caso não esteja ativos os containers do docker usar o comando: docker composer up -d
-
-no terminal entrar na pasta teste-back-end e usar os comandos:
-
-docker exec -it db /bin/bash
-
-mariadb -u root p
-
-prompt pedirá a senha do usuário root, caso tenha esquecido é só olhar o arquivo docker-compose.yml
-
-show variables like 'socket'
-
-copie o caminho do socket que estará na tabela.
-
-Abra o arquivo .env e adicione na DB_SOCKET nas variárveis do banco de dados, por exemplo:
-
-DB_SOCKET = cole o caminho do socket que você conseguiu no prompt
-DB_CONNECTION=mysql
-DB_HOST= localhost
-DB_PORT=3306
-DB_DATABASE=teste_backend
-DB_USERNAME=root
-DB_PASSWORD= sua senha
-
-
-
-
-
-
-
+    php artisan config:clear
+    php artisan migrate:install
+    php artisan migrate
 
 
 
