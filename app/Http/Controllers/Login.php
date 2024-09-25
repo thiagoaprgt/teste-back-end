@@ -20,34 +20,13 @@ class Login extends Controller
     }
 
 
-    public static function saveUser(Request $data) {       
-
-
-
+    public static function saveUser(Request $data) { 
         UserRepository::create($data);
-
-    }
-
-
-
-    public static function listarUsers()      
-    {
-       
-        $users = UserRepository::getAll();
-
-        // print_r($users);
- 
-        return view('login', ['users' => $users]);
-
-
-        
-    }
+    }   
 
 
     public static function deleteUser(Request $data) {
         UserRepository::delete($data);
     }
-
-    
 
 }

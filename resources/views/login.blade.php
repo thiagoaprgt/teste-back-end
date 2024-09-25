@@ -22,30 +22,34 @@
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input name="password" type="password" class="form-control border border-primary" id="password">
-                </div>  
-                              
-                           
+                </div>      
+
+
                 
-                
+                    <div class="container text-center">
 
-                <div class="container text-center">
-                    <div class="row align-items-start">
-
-                        <div class="col">
-                            <button type="submit" class="btn btn-primary">Login</button>    
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary">Fazer o login</button>
+                            </div>
+                            <div class="col">
+                                <a href="/newUser" class="btn btn-primary" >Cadastre-se</a>
+                            </div>
+                            <div class="col">
+                                <div class="btn btn-success" id="editarCadastro">Editar o cadastro</a>
+                            </div>
+                            
                         </div>
-
-                        <div class="col">
-                            <a href="/newUser" class="btn btn-primary" >Cadastre-se</a>
+                        
+                        <div class="row deleteUser" >
+                            
+                            <div class="col-8">
+                                <div class="btn btn-danger" id="deleteUser">Excluir o cadastro</a>
+                            </div>
+                            
                         </div>
-
-                        <div class="col">
-                            <div class="btn btn-danger" id="deleteUser">Excluir o cadastro</a>
-                        </div>
-
-                    </div>
-                </div>
-
+                       
+                    </div>    
 
             </form>
         </div>

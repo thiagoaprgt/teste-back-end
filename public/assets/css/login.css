@@ -8,3 +8,15 @@
     align-items: center;
     
 }
+
+.deleteUser {
+
+    width: 100vw;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+
+
+}
