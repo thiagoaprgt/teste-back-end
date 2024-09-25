@@ -15,11 +15,9 @@ class Product extends Controller
    
 
 
-    public static function saveProduct(Request $data) { 
+    public static function saveProduct(Request $data) {
         
-        ProductsRepository::create($data);
-
-        
+        ProductsRepository::create($data);        
     }   
 
 
@@ -31,4 +29,12 @@ class Product extends Controller
         ProductsRepository::update($data);
         return view('editUser');
     }
+
+    public static function getAllProducts() {
+        $products = ProductsRepository::getAll();
+
+        return view('productsTemplate/getAllProducts', ['products' => $products]);
+    }
+
+
 }

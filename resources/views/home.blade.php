@@ -38,7 +38,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Produtos</h5>
                                 <p class="card-text">Aqui você poderá adicionar, atualizar e deletar os produtos</p>
-                                <a href="/getAllProducts" class="btn btn-primary">Gerenciar produtos</a>
+                                <a href="/productsTemplate/getAllProducts" class="btn btn-primary">Gerenciar produtos</a>
                             </div>
                         </div>
                     </div>  
