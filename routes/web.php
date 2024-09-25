@@ -13,10 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\Login;
+
 Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/welcome', function () {
-    return view('welcome');
+Route::post('/loginAuthentication', [Login::class, 'loginAuthentication']);
+
+
+Route::get('/listar', [Login::class, 'listarUsers']);
+
+Route::get('/newUser', function () {
+    return view('newUser');
 });
+
+// Route::post('/createUser', [Login::class, 'saveUser']);
+
+Route::match(['get', 'post'], '/createUser', [Login::class, 'saveUser']);
