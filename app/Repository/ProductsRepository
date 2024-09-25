@@ -1,0 +1,93 @@
+<?php
+
+namespace App\Repository;
+
+use App\Interfaces\RepositoriesInterface;
+use Illuminate\Support\Facades\DB;
+use App\Models\Products;
+
+
+class ProductsRepository {
+
+    
+
+    public function __construct() {
+
+        
+    }
+
+
+
+    public static function getAll() {
+        $products = DB::table('products')->get();
+
+        return $products;
+    }
+
+    
+    public static function create($data) {
+
+        DB::table('products')->insert([
+        ]);
+
+    }
+
+    public static  function update($data) {
+
+        $product = self::findLogin($data);  
+        
+        
+
+        if($product) {
+
+            DB::table('products')
+            ->where('id', $product->id)
+            ->update([
+            ])
+        ;
+
+        }else{
+            print_r($product);
+        }
+
+    }
+
+    public static function delete($data) {
+
+        $product = self::findLogin($data);         
+
+        if($product) {
+
+            DB::table('products')
+                ->where('id', $product->id)
+                ->delete()
+            ;
+
+        }
+
+    }
+
+    public static function findLogin($data) {
+
+        $product = DB::table('products')
+            ->where([
+                ['email', '=', $data->email],
+                ['password', '=', $data->password]
+            ])
+            ->first()
+        ;    
+        
+        return $product;
+
+    }    
+
+    public static function getById($id) {
+        $user = DB::table('products')
+        ->where('id', $data->id)
+        ->get();
+
+        return $product;
+
+    }
+
+}

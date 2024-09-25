@@ -12,6 +12,11 @@ no terminal entrar na pasta teste-back-end e usar os comandos:
     php artisan migrate:install
     php artisan migrate
 
+# Sistema de login e logout
+
+Quando o usuário faz o login corretamente as informações do usuário são armezada na variável de sessão $_SESSION, fazendo que não seja necessário fazer várias conexões com o banco de dados.
+Foi feito um grupo de rotas (Classe Route do Laravel) que só pode ser acessado quando a variável $_SESSION['user']['id'] estiver configurada.
+Ao fazer o logout as informações armazenadas na variável de sessão ( $_SESSION ) não resetadas.
 
 
 # Teste prático para Back-End 

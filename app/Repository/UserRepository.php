@@ -75,8 +75,6 @@ class UserRepository {
                 ->delete()
             ;
 
-        }else{
-            dd("não existe esse usuário no sistema.");
         }
 
     }
