@@ -30,7 +30,7 @@ class Login extends Controller
             
             
         }else {
-            self::logout();
+            return redirect('/');
         }
 
     }
@@ -41,6 +41,8 @@ class Login extends Controller
         session_unset();
 
         session_destroy();
+
+        return redirect('/');
     }
 
 

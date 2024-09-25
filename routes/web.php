@@ -49,7 +49,9 @@ Route::controller(OrderController::class)->group(function () {
 
         Route::match(['get', 'post'], '/deleteUser', [Login::class, 'deleteUser']);
 
-        Route::match(['get', 'post'], '/editUser', [Login::class, 'editUser']);        
+        Route::match(['get', 'post'], '/editUser', [Login::class, 'editUser']); 
+        
+        Route::get('/logout', [Login::class, 'logout']);
 
     }
 

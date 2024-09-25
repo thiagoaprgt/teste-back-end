@@ -9,7 +9,9 @@
 
     <body>
         
-        Home page em construção
+        <p>Home page em construção</p>
+
+        <a href="/logout">logout</a>
         
     </body>
 
