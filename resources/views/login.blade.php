@@ -36,7 +36,7 @@
                                 <a href="/newUser" class="btn btn-primary" >Cadastre-se</a>
                             </div>
                             <div class="col">
-                                <div class="btn btn-success" id="editarCadastro">Editar o cadastro</a>
+                                <a href="/editUser" class="btn btn-success">Editar o cadastro</a>
                             </div>
                             
                         </div>

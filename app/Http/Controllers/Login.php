@@ -29,4 +29,9 @@ class Login extends Controller
         UserRepository::delete($data);
     }
 
+    public static function editUser(Request $data) {
+        UserRepository::update($data);
+        return view('editUser');
+    }
+
 }

@@ -37,14 +37,30 @@ class UserRepository {
     }
 
     public static  function update($data) {
-        DB::table('users')
-            ->where('id', $data->id)
+
+        $user = self::findLogin($data);  
+        
+        
+
+        if($user) {
+
+            DB::table('users')
+            ->where('id', $user->id)
             ->update([
                 'name' => $data->name,
-                'email' => $data->email,
-                'password' => $data->password
+                'email' => $data->newEmail,
+                'password' => $data->newPassword
             ])
         ;
+
+        }else{
+            print_r($user);
+        }
+
+
+
+
+        
 
     }
 
