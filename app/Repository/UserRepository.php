@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Interfaces\RepositoriesInterface;
+
 use Illuminate\Support\Facades\DB;
 use App\Models\Users;
 

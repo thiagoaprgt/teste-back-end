@@ -4,19 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Products extends Controller
+use App\Models\Products;
+use Illuminate\Support\Facades\DB;
+use App\Repository\ProductsRepository; 
+
+
+class Product extends Controller
 {
+
+   
+
+
     public static function saveProduct(Request $data) { 
-        UserRepository::create($data);
+        
+        ProductsRepository::create($data);
+
+        
     }   
 
 
     public static function deleteProduct(Request $data) {
-        UserRepository::delete($data);
+        ProductsRepository::delete($data);
     }
 
     public static function editProduct(Request $data) {
-        UserRepository::update($data);
+        ProductsRepository::update($data);
         return view('editUser');
     }
 }

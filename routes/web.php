@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\Login;
+use App\Http\Controllers\Product;
 
 Route::get('/', function () {
     
@@ -41,17 +42,37 @@ Route::get('/newUser', function () {
 Route::match(['get', 'post'], '/createUser', [Login::class, 'saveUser']);
 
 
+
 Route::controller(OrderController::class)->group(function () {
 
     session_start();
 
     if(!empty($_SESSION['user']['id'])) {
 
+        // edição das informações do usuário
+
         Route::match(['get', 'post'], '/deleteUser', [Login::class, 'deleteUser']);
 
         Route::match(['get', 'post'], '/editUser', [Login::class, 'editUser']); 
         
         Route::get('/logout', [Login::class, 'logout']);
+
+        // edição das informações do usuário
+
+        Route::get('/newProducts', function () {
+            return view('productsTemplate/newProducts');
+        });
+
+       
+
+        Route::match(['get', 'post'], '/createProduct', [Product::class, 'saveProduct']);
+
+        Route::match(['get', 'post'], '/editProducts', [Product::class, 'editProduct']);
+
+        Route::match(['get', 'post'], '/deleteProducts', [Product::class, 'deleteProduct']);
+
+        Route::match(['get', 'post'], '/getAllProducts', [Product::class, 'getAllProducts']);
+
 
     }
 
