@@ -57,7 +57,10 @@ class Login extends Controller
 
     public static function editUser(Request $data) {
         UserRepository::update($data);
-        return view('editUser');
+        return view('editUser', [
+            'name' => $_SESSION['user']['name'],
+            'email' => $_SESSION['user']['email']            
+        ]);
     }
 
 }

@@ -16,12 +16,12 @@
 
                 <div class="mb-3">
                     <label for="name" class="form-label">Nome</label>
-                    <input name="name"  type="text" class="form-control border border-primary" id="name">                    
+                    <input name="name" value="{{ $name }}" type="text" class="form-control border border-primary" id="name">                    
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email atual</label>
-                        <input name="email"  type="email" class="form-control border border-primary" id="email">                    
+                        <input name="email" value="{{ $email }}"  type="email" class="form-control border border-primary" id="email">                    
                 </div>
 
                 <div class="mb-3">
