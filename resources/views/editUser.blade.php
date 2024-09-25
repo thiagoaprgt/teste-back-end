@@ -41,7 +41,7 @@
                 
                 <div>
                 <button class="btn btn-primary" id="submit">Cadastrar</button>
-                <a href="/" class="btn btn-primary">Login</a>
+                <a href="/" class="btn btn-primary">Voltar</a>
                 </div>
 
                 
