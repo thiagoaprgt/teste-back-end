@@ -10,13 +10,37 @@ use App\Repository\UserRepository;
 
 class Login extends Controller
 {
+    public function __contruct() {
+        
+    }
 
     public static function loginAuthentication(Request $data) {    
         
         $user = UserRepository::findLogin($data);
 
-        print_r([$data->email, $data->password]);
+        if($user) {
+                        
+            $_SESSION['user']['id'] = $user->id;
+            $_SESSION['user']['name'] = $user->name;
+            $_SESSION['user']['email'] = $user->email;
+            $_SESSION['user']['password'] = $user->password;
+            
+            return redirect('/')->with('msg', 'Login feito com sucesso');
+            
+            
+            
+        }else {
+            self::logout();
+        }
 
+    }
+
+
+    public static function logout() {
+        
+        session_unset();
+
+        session_destroy();
     }
 
 

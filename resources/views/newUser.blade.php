@@ -30,8 +30,8 @@
                 </div>
                 
                 <div>
-                <button class="btn btn-primary" id="submit">Cadastrar</button>
-                <a href="/" class="btn btn-primary">Login</a>
+                <button class="btn btn-success" id="submit">Cadastrar</button>
+                <a href="/" class="btn btn-primary">Voltar</a>
                 </div>
 
                 

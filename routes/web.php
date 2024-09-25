@@ -16,7 +16,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Login;
 
 Route::get('/', function () {
-    return view('login');
+    
+    if(empty($_SESSION['user']['id'])) {
+
+        return view('login');  
+
+    }else {
+        return view('home'); 
+    }
+
 });
 
 Route::post('/loginAuthentication', [Login::class, 'loginAuthentication']);
@@ -28,10 +36,27 @@ Route::get('/newUser', function () {
     return view('newUser');
 });
 
-// Route::post('/createUser', [Login::class, 'saveUser']);
+
 
 Route::match(['get', 'post'], '/createUser', [Login::class, 'saveUser']);
 
-Route::match(['get', 'post'], '/deleteUser', [Login::class, 'deleteUser']);
 
-Route::match(['get', 'post'], '/editUser', [Login::class, 'editUser']);
+Route::controller(OrderController::class)->group(function () {
+
+    session_start();
+
+    if(!empty($_SESSION['user']['id'])) {
+
+        Route::match(['get', 'post'], '/deleteUser', [Login::class, 'deleteUser']);
+
+        Route::match(['get', 'post'], '/editUser', [Login::class, 'editUser']);        
+
+    }
+
+    
+   
+});
+
+
+
+

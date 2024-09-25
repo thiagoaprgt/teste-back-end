@@ -16,11 +16,11 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" id="laravelSecurityToken">
 
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
                     <input name="email" value="" type="email" class="form-control border border-primary" id="email">                    
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <label for="exampleInputPassword1" class="form-label">Senha</label>
                     <input name="password" type="password" class="form-control border border-primary" id="password">
                 </div>      
 
@@ -30,24 +30,13 @@
 
                         <div class="row">
                             <div class="col">
-                                <button type="submit" class="btn btn-primary">Fazer o login</button>
+                                <button type="submit" class="btn btn-primary">login</button>
                             </div>
                             <div class="col">
-                                <a href="/newUser" class="btn btn-primary" >Cadastre-se</a>
-                            </div>
-                            <div class="col">
-                                <a href="/editUser" class="btn btn-success">Editar o cadastro</a>
-                            </div>
+                                <a href="/newUser" class="btn btn-primary" >Cadastrar</a>
+                            </div>                            
                             
-                        </div>
-                        
-                        <div class="row deleteUser" >
-                            
-                            <div class="col-8">
-                                <div class="btn btn-danger" id="deleteUser">Excluir o cadastro</a>
-                            </div>
-                            
-                        </div>
+                        </div>                         
                        
                     </div>    
 
