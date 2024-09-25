@@ -11,7 +11,11 @@ use App\Repository\UserRepository;
 class Login extends Controller
 {
 
-    public static function loginAuthentication(Request $request) {       
+    public static function loginAuthentication(Request $data) {    
+        
+        $user = UserRepository::findLogin($data);
+
+        print_r([$data->email, $data->password]);
 
     }
 
@@ -19,12 +23,8 @@ class Login extends Controller
     public static function saveUser(Request $data) {       
 
 
-        // print_r($data);
 
         UserRepository::create($data);
- 
-        return view('newUser', ['users' => $data]);
-
 
     }
 
@@ -41,6 +41,11 @@ class Login extends Controller
 
 
         
+    }
+
+
+    public static function deleteUser(Request $data) {
+        UserRepository::delete($data);
     }
 
     

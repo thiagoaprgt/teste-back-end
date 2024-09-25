@@ -29,7 +29,12 @@
                     <input name="password" type="password" class="form-control border border-primary" id="password">
                 </div>
                 
+                <div>
                 <button class="btn btn-primary" id="submit">Cadastrar</button>
+                <a href="/" class="btn btn-primary">Login</a>
+                </div>
+
+                
             
         </div>
         

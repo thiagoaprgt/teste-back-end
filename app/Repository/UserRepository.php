@@ -48,26 +48,34 @@ class UserRepository {
 
     }
 
-    public static function delete(string $id) {
+    public static function delete($data) {
 
-        DB::table('users')
-        ->where('id', $data->id)
-        ->delete();
+        $user = self::findLogin($data);         
+
+        if($user) {
+
+            DB::table('users')
+                ->where('id', $user->id)
+                ->delete()
+            ;
+
+        }else{
+            dd("não existe esse usuário no sistema.");
+        }
 
     }
 
-    public static function findLogin($email, $password) {
+    public static function findLogin($data) {
 
-        $users = DB::table('users')
-        ->select('*')
-        ->where(
-            ['email', '=' , $email],
-            ['password', '=', $password]
-        )
-        ->get()
-        ;
-
-       
+        $user = DB::table('users')
+            ->where([
+                ['email', '=', $data->email],
+                ['password', '=', $data->password]
+            ])
+            ->first()
+        ;    
+        
+        return $user;
 
     }    
 

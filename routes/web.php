@@ -31,3 +31,5 @@ Route::get('/newUser', function () {
 // Route::post('/createUser', [Login::class, 'saveUser']);
 
 Route::match(['get', 'post'], '/createUser', [Login::class, 'saveUser']);
+
+Route::match(['get', 'post'], '/deleteUser', [Login::class, 'deleteUser']);
