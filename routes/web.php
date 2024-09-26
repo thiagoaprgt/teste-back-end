@@ -87,7 +87,7 @@ Route::controller(OrderController::class)->group(function () {
 
         Route::match(['get', 'post'], 'createProduct', [Product::class, 'saveProduct']);
 
-        
+        Route::match(['get', 'post'], '/deleteCategory', [Product::class, 'deleteCategory']);        
         
     }
 

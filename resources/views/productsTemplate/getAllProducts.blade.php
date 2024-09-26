@@ -10,6 +10,10 @@
     </head>
     <body>
 
+        <div class="alert alert-info visually-hidden" id="message" role="alert"> </div>
+
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" id="laravelSecurityToken">
+
         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
             <button type="button" class="btn btn-danger">
                 <a href="/logout" class="text-white text-decoration-none">Logout</a>
@@ -25,7 +29,7 @@
                 <ul class="dropdown-menu">                    
                     <li class="d-flex align-items-start">
                         <div>                            
-                        <select class="form-select" aria-label="Default select example">
+                        <select id="selectcategories" class="form-select" aria-label="Default select example">
                             <option selected>Open this select menu</option>
                             @foreach ($categories as $key => $arrayGroupby)
                             <option value="{{ $key }}">{{ $key }}</option>
@@ -33,14 +37,16 @@
                                                         
                         </select>
 
-                            <button class="btn btn-success" id="deleteCategory">➕</button>
-                            <button class="btn btn-danger" id="deleteCategory">🗑️</button>                            
+                            <button class="btn btn-success d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2" id="submitAddCategory">➕</button>
+                            <button class="btn btn-danger d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2" id="submitDeleteCategory">🗑️</button>                            
                         </div>
                                             
                     </li>
                 </ul>
             </div>
         </div>
+
+        
 
         <table class="table table-striped">
             <tr>
@@ -75,6 +81,6 @@
 
     @include('bootstrap/js')
 
-    
+    <script src="../assets/js/products/getAllProducts.js"></script>
 
 </html>
