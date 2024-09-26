@@ -33,7 +33,7 @@ class Product extends Controller
         
     }
     
-    public static function editProduct(Request $data) {
+    public static function editProduct($data) {
         ProductsRepository::update($data);
         
     }
@@ -42,6 +42,10 @@ class Product extends Controller
         $products = ProductsRepository::getAll();
 
         return view('productsTemplate/getAllProducts', ['products' => $products]);
+    }
+
+    public static function delete($data) {        
+        ProductsRepository::delete($data);        
     }
 
 

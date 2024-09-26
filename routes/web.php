@@ -78,6 +78,12 @@ Route::controller(OrderController::class)->group(function () {
             return view('productsTemplate/editProducts', ['product' => $product]);            
         });
 
+
+        Route::get('deleteProduct/{id}', function (string $id) {
+            $product = Product::delete($id);
+            return redirect('productsTemplate/getAllProducts');
+        });
+
         
         
     }
