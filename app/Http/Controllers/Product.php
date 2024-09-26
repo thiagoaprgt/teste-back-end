@@ -31,7 +31,12 @@ class Product extends Controller
         
         return $object;
         
-    }    
+    }
+    
+    public static function editProduct(Request $data) {
+        ProductsRepository::update($data);
+        
+    }
 
     public static function getAllProducts() {
         $products = ProductsRepository::getAll();

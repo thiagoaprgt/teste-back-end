@@ -39,21 +39,19 @@ class ProductsRepository {
 
     public static  function update($data) {
 
-        $product = self::findProduct($data);  
-        
         
 
-        if($product) {
-
-            DB::table('products')
-            ->where('id', $product->id)
-            ->update([
-            ])
+        DB::table('products')
+        ->where('id', $data->id)
+        ->update([
+            'name' => $data->name,
+            'price' => $data->price,
+            'description' => $data->description,
+            'category' => $data->category,
+            'image_url' => $data->image_url
+        ])
         ;
 
-        }else{
-            print_r($product);
-        }
 
     }
 
@@ -75,10 +73,7 @@ class ProductsRepository {
     public static function findProduct($data) {
 
         $product = DB::table('products')
-            ->where([
-                ['email', '=', $data->email],
-                ['password', '=', $data->password]
-            ])
+            ->where([])
             ->first()
         ;    
         
