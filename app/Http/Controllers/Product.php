@@ -28,9 +28,7 @@ class Product extends Controller
 
     public static function getProdcutById($id) {        
         $product = ProductsRepository::getById($id);
-        $object = $product->toArray()[0];
-        
-        return $object;
+        return $product[0];
         
     }
     
