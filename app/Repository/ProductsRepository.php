@@ -39,8 +39,6 @@ class ProductsRepository {
 
     public static  function update($data) {
 
-        
-
         DB::table('products')
         ->where('id', $data->id)
         ->update([

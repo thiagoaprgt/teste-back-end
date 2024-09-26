@@ -74,7 +74,7 @@ Route::controller(OrderController::class)->group(function () {
         Route::match(['get', 'post'], '/editProduct', [Product::class, 'editProduct']);
         
         Route::get('getProdcutById/{id}', function (string $id) {
-            $product = Product::getProdcutById($id); 
+            $product = Product::getProdcutById($id);             
             return view('productsTemplate/editProducts', ['product' => $product]);            
         });
 
