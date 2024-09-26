@@ -23,7 +23,7 @@ class Product extends Controller
 
 
     public static function deleteProduct(Request $data) {
-        ProductsRepository::delete($data);
+        ProductsRepository::deleteProduct($data);
     }
 
     public static function getProdcutById($id) {        
@@ -48,10 +48,7 @@ class Product extends Controller
         ]);
     }
 
-    public static function delete($data) {        
-        ProductsRepository::delete($data);        
-    }
-
+   
     public static function deleteCategory(Request $data) {
         ProductsRepository::deleteCategory($data);
     }

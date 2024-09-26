@@ -67,7 +67,7 @@ Route::controller(OrderController::class)->group(function () {
 
         Route::match(['get', 'post'], 'createProduct', [Product::class, 'saveProduct']);        
 
-        Route::match(['get', 'post'], '/deleteProducts', [Product::class, 'deleteProduct']);
+        Route::match(['get', 'post'], '/deleteProduct', [Product::class, 'deleteProduct']);
 
         Route::match(['get', 'post'], 'productsTemplate/getAllProducts', [Product::class, 'getAllProducts']);
 
@@ -79,10 +79,7 @@ Route::controller(OrderController::class)->group(function () {
         });
 
 
-        Route::get('deleteProduct/{id}', function (string $id) {
-            $product = Product::delete($id);
-            return redirect('productsTemplate/getAllProducts');
-        });
+        Route::match(['get', 'post'], '/deleteProduct', [Product::class, 'deleteProduct']);
 
 
         Route::match(['get', 'post'], 'createProduct', [Product::class, 'saveProduct']);

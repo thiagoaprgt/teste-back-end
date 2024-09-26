@@ -70,7 +70,7 @@
                 <th>{{ $product->category }}</th>
                 <th>{{ $product->image_url }}</th>
                 <th><a href="/getProdcutById/{{ $product->id }}">✏️</a></th>
-                <th><a href="/deleteProduct/{{ $product->id }}">🗑️</a></th>
+                <th><button onclick="deleteProduct({{$product->id}})">🗑️</button></th>
             </tr>
 
             @endforeach

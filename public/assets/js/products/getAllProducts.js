@@ -36,6 +36,25 @@ async function categoryDeleted() {
     
 }
 
+
+
+async function productDeleted() {  
+    
+    document.querySelectorAll('#message')[0].innerHTML = 'Produto deletado com sucesso';
+    document.querySelectorAll('#message')[0].classList.toggle("visually-hidden");
+
+    setTimeout(() => {
+
+        document.querySelectorAll('#message')[0].innerHTML = '';
+        document.querySelectorAll('#message')[0].classList.toggle("visually-hidden");
+
+        window.location.reload();
+        
+    }, 4000);
+
+    
+}
+
     
 
 submitAddCategory.addEventListener("click", async () => {            
@@ -76,4 +95,21 @@ submitDeleteCategory.addEventListener("click", async () => {
   
 
 });
+
+async function deleteProduct(id) {    
+    
+    const formData = new FormData();
+    formData.append( "_token", document.querySelectorAll('#laravelSecurityToken')[0].value );
+    formData.append("id", id);
+    
+
+    console.log(formData);
+
+    const response = await fetch("/deleteProduct", {
+        method: "POST",
+        body: formData,
+    });    
+     
+    await productDeleted();
+}
 

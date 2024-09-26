@@ -53,18 +53,13 @@ class ProductsRepository {
 
     }
 
-    public static function delete($data) {
+    public static function deleteProduct($data) {
+        
+        $product = DB::table('products')
+        ->where(['id' => $data->id])
+        ->delete();         
 
-        $product = self::findProduct($data);         
-
-        if($product) {
-
-            DB::table('products')
-                ->where('id', $product->id)
-                ->delete()
-            ;
-
-        }
+        
 
     }
 
