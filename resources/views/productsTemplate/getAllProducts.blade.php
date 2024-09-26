@@ -22,9 +22,22 @@
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         Categoria
                     </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Adicionar Categoria</a></li>
-                    <li><a class="dropdown-item" href="#">Excluir Categoria</a></li>
+                <ul class="dropdown-menu">                    
+                    <li class="d-flex align-items-start">
+                        <div>                            
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            @foreach ($categories as $key => $arrayGroupby)
+                            <option value="{{ $key }}">{{ $key }}</option>
+                            @endforeach
+                                                        
+                        </select>
+
+                            <button class="btn btn-success" id="deleteCategory">➕</button>
+                            <button class="btn btn-danger" id="deleteCategory">🗑️</button>                            
+                        </div>
+                                            
+                    </li>
                 </ul>
             </div>
         </div>

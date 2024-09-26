@@ -68,10 +68,10 @@ class ProductsRepository {
 
     }
 
-    public static function findProduct($data) {
+    public static function findProduct($data, array $filter) {
 
         $product = DB::table('products')
-            ->where([])
+            ->where($filter)
             ->first()
         ;    
         
@@ -84,8 +84,26 @@ class ProductsRepository {
         ->where('id', $id)
         ->get();        
 
-        return $product;
+        return $product->toArray();
 
+    }
+
+    public static function getAllCategories() {        
+
+        $categories = DB::table('products')
+            ->get('category')
+            ->groupBy('category')
+            
+        ;
+        
+        return $categories->toArray();
+
+    }
+
+    public static function deleteCategory($data) {
+        $products = DB::table('products')
+        ->where(['category' => $data->category])
+        ->delete();
     }
 
 }

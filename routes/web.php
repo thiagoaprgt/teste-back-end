@@ -57,7 +57,7 @@ Route::controller(OrderController::class)->group(function () {
         
         Route::get('/logout', [Login::class, 'logout']);
 
-        // edição das informações do usuário
+        // edição das informações do Produtos
 
         Route::get('/newProducts', function () {
             return view('productsTemplate/newProducts');
@@ -83,6 +83,9 @@ Route::controller(OrderController::class)->group(function () {
             $product = Product::delete($id);
             return redirect('productsTemplate/getAllProducts');
         });
+
+
+        Route::match(['get', 'post'], 'createProduct', [Product::class, 'saveProduct']);
 
         
         

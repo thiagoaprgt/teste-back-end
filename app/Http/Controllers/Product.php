@@ -18,7 +18,7 @@ class Product extends Controller
     public static function saveProduct(Request $data) {
         
         ProductsRepository::create($data); 
-        
+
     }   
 
 
@@ -41,12 +41,20 @@ class Product extends Controller
 
     public static function getAllProducts() {
         $products = ProductsRepository::getAll();
-
-        return view('productsTemplate/getAllProducts', ['products' => $products]);
+        $categories = ProductsRepository::getAllCategories();
+       
+        return view('productsTemplate/getAllProducts', [
+            'products' => $products,
+            'categories' => $categories
+        ]);
     }
 
     public static function delete($data) {        
         ProductsRepository::delete($data);        
+    }
+
+    public static function deleteCategory(Request $data) {
+        ProductsRepository::deleteCategory($data);
     }
 
 
