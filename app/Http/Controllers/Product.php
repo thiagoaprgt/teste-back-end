@@ -54,4 +54,11 @@ class Product extends Controller
     }
 
 
+    public static function saveCategory(Request $data) {
+        
+        ProductsRepository::createCategory($data); 
+
+    }
+
+
 }

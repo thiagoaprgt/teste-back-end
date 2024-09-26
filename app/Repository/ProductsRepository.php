@@ -19,13 +19,16 @@ class ProductsRepository {
 
 
     public static function getAll() {
-        $products = DB::table('products')->get();
+        $products = DB::table('products')
+            ->where('description', '<>', 'dont_show_this_product')
+            ->get();           
+        ;
 
         return $products;
     }
 
         
-    public static function create($data) {
+    public static function createProduct($data) {
 
         DB::table('products')->insert([            
             'name' => $data->name,
@@ -33,6 +36,19 @@ class ProductsRepository {
             'description' => $data->description,
             'category' => $data->category,
             'image_url'=> $data->image_url
+        ]);
+
+    }
+
+
+    public static function createCategory($data) {        
+
+        DB::table('products')->insert([            
+            'name' => $data->category,
+            'price' => 0,
+            'description' => 'dont_show_this_product', // essa descrição é no getAll desse repositório
+            'category' => $data->category,
+            'image_url'=> $data->category
         ]);
 
     }

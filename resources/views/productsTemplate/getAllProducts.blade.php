@@ -36,8 +36,7 @@
                             @endforeach
                                                         
                         </select>
-
-                            <button class="btn btn-success d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2" id="submitAddCategory">➕</button>
+                            <a href="/newCategory" class="btn btn-success d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2">➕</a>                            
                             <button class="btn btn-danger d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2" id="submitDeleteCategory">🗑️</button>                            
                         </div>
                                             
