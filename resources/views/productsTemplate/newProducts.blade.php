@@ -36,7 +36,7 @@
 
         <div class="mb-3">
             <label for="" class="form-label">Url da imagem</label>
-            <input name="image_url" type="password" class="form-control border border-primary" id="image_url">
+            <input name="image_url" type="text" class="form-control border border-primary" id="image_url">
         </div>
         
         <div>
