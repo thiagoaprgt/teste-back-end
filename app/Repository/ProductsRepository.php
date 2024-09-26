@@ -87,9 +87,9 @@ class ProductsRepository {
     }    
 
     public static function getById($id) {
-        $user = DB::table('products')
-        ->where('id', $data->id)
-        ->get();
+        $product = DB::table('products')
+        ->where('id', $id)
+        ->get();        
 
         return $product;
 

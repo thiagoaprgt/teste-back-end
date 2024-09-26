@@ -14,29 +14,33 @@
             
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" id="laravelSecurityToken">
 
+                <input type="hidden" name="id" value="{{ $product->id }}" type="number" class="form-control border border-primary" id="id">                    
+                              
+                    
+
                 <div class="mb-3">
                     <label for="name" class="form-label">Nome</label>
-                    <input name="name"  type="text" class="form-control border border-primary" id="name">                    
+                    <input name="name" value="{{ $product->name }}" type="text" class="form-control border border-primary" id="name">                    
                 </div>
 
                 <div class="mb-3">
                     <label for="" class="form-label">Preço</label>
-                        <input name="price"  type="number" class="form-control border border-primary" id="price">                    
+                        <input name="price" value="{{ $product->price }}"  type="number" class="form-control border border-primary" id="price">                    
                 </div>
 
                 <div class="mb-3">
                     <label for="" class="form-label">Descrição do produto</label>
-                        <input name="description"  type="textarea" class="form-control border border-primary" id="description">                    
+                        <input name="description" value="{{ $product->description }}" type="textarea" class="form-control border border-primary" id="description">                    
                 </div>
 
                 <div class="mb-3">
                     <label for="" class="form-label">Categoria</label>
-                    <input name="category" type="text" class="form-control border border-primary" id="category">
+                    <input name="category" value="{{ $product->category }}" type="text" class="form-control border border-primary" id="category">
                 </div>
 
                 <div class="mb-3">
                     <label for="" class="form-label">Url da imagem</label>
-                    <input name="image_url" type="password" class="form-control border border-primary" id="image_url">
+                    <input name="image_url" value="{{ $product->image_url }}" type="text" class="form-control border border-primary" id="image_url">
                 </div>
                 
                 <div>

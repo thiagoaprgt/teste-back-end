@@ -25,10 +25,13 @@ class Product extends Controller
         ProductsRepository::delete($data);
     }
 
-    public static function editProduct(Request $data) {
-        ProductsRepository::update($data);
-        return view('editUser');
-    }
+    public static function getProdcutById($id) {        
+        $product = ProductsRepository::getById($id);
+        $object = $product->toArray()[0];
+        
+        return $object;
+        
+    }    
 
     public static function getAllProducts() {
         $products = ProductsRepository::getAll();

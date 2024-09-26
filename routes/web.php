@@ -65,21 +65,20 @@ Route::controller(OrderController::class)->group(function () {
 
        
 
-        Route::match(['get', 'post'], 'createProduct', [Product::class, 'saveProduct']);
-
-        Route::match(['get', 'post'], 'productsTemplate/editProducts', [Product::class, 'editProduct']);
+        Route::match(['get', 'post'], 'createProduct', [Product::class, 'saveProduct']);        
 
         Route::match(['get', 'post'], '/deleteProducts', [Product::class, 'deleteProduct']);
 
         Route::match(['get', 'post'], 'productsTemplate/getAllProducts', [Product::class, 'getAllProducts']);
 
-        // Route::get('productsTemplate/getAllProducts', [Product::class, 'getAllProducts']);
+        Route::get('getProdcutById/{id}', function (string $id) {
+            $product = Product::getProdcutById($id); 
 
-
-        // Route::get('/getAllProducts', function () {
-        //     return view('productsTemplate/getAllProducts');
-        // });
-
+            return view('productsTemplate/editProducts', ['product' => $product]);
+            
+            
+        });
+        
     }
 
     
