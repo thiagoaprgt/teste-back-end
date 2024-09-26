@@ -32,7 +32,8 @@ class Product extends Controller
         
     }
     
-    public static function editProduct($data) {
+    public static function editProduct(Request $data) {
+        
         ProductsRepository::update($data);
         
     }

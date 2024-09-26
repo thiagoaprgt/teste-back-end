@@ -58,6 +58,6 @@
 
     @include('bootstrap/js')
     
-     <script src="assets/js/products/editProducts.js"></script>
+     <script src="../../assets/js/products/editProducts.js"></script>
 
 </html>
