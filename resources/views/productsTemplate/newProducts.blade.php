@@ -11,6 +11,8 @@
     <body>
 
     <div class="login">
+
+        <div class="alert alert-info visually-hidden" id="message" role="alert"> </div>
             
         <input type="hidden" name="_token" value="{{ csrf_token() }}" id="laravelSecurityToken">
 
@@ -41,7 +43,7 @@
         
         <div>
             <button class="btn btn-primary" id="submit">Salvar alterações</button>
-            <a href="/" class="btn btn-primary">Voltar</a>
+            <a href="/productsTemplate/getAllProducts" class="btn btn-primary">Ver produtos</a>
         </div>            
         
     </div>

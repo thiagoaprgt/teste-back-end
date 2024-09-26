@@ -17,7 +17,8 @@ class Product extends Controller
 
     public static function saveProduct(Request $data) {
         
-        ProductsRepository::create($data);        
+        ProductsRepository::create($data); 
+        
     }   
 
 
