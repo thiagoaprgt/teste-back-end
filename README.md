@@ -30,6 +30,9 @@ Agora execute os comandos abaixo, caso vc já tenha gerado a key vc pode pular p
     php artisan migrate:install
     php artisan migrate
 
+# Configurando o storage
+
+php artisan storage:link
 
 # Agora você pode abrir aplicação na url localhost:8989 e o phpmyadmin na url localhost:8080
 
