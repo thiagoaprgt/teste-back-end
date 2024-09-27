@@ -4,13 +4,34 @@ instalar o docker na máquina
 no terminal entrar na pasta teste-back-end e usar os comandos:
     
     docker composer up -d
-    docker exec -it teste-back-end-app-1 bash
+    docker exec -it php bash
     composer install
     composer update
+
+# Configurando o banco de dados
+
+Tem um arquivo .env.example que você deve copiar e trocar o nome da cópia para .env e depois alterar informações de conexão com banco de dados.
+de dados.
+
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE= 
+DB_USERNAME=root
+DB_PASSWORD=sua senha
+
+As variáreis de ambiente DB_CONNECTION, DB_HOST e DB_PORT tem que ser respectivamente mysql, db 3306 
+pois esses valores vão bater com a configuração do docker-compose.yml.
+
+Agora execute os comandos abaixo, caso vc já tenha gerado a key vc pode pular para o segundo comando
+
     php artisan key:generate
     php artisan config:clear
     php artisan migrate:install
     php artisan migrate
+
+
+# Agora você pode abrir aplicação na url localhost:8989 e o phpmyadmin na url localhost:8080
 
 # Sistema de login e logout
 
