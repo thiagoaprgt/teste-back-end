@@ -117,4 +117,25 @@ class ProductsRepository {
         ->delete();
     }
 
+
+    public static function importProductsFromJson($json) {
+
+        $products = json_decode($json);
+
+        foreach($products as $product) {
+
+            DB::table('products')->insert([            
+                'name' => $product->name,
+                'price' => $product->price,
+                'description' => $product->description,
+                'category' => $product->category,
+                'image_url'=> $product->image
+            ]);
+            
+        }
+
+        
+
+    }
+
 }

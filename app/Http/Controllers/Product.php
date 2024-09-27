@@ -12,12 +12,15 @@ use App\Repository\ProductsRepository;
 class Product extends Controller
 {
 
-   
+    public function teste() {
+        
+        return view('teste');
+   }
 
 
     public static function saveProduct(Request $data) {
         
-        ProductsRepository::create($data); 
+        ProductsRepository::createProduct($data); 
 
     }   
 
@@ -57,6 +60,13 @@ class Product extends Controller
     public static function saveCategory(Request $data) {
         
         ProductsRepository::createCategory($data); 
+
+    }
+
+
+    public static function importProducts(Request $data) {
+
+        ProductsRepository::importProductsFromJson($data->json);
 
     }
 
