@@ -140,20 +140,32 @@ class ProductsRepository {
     }
 
 
+    public static function importProductsFromJsonSanitize($json) {
+
+        $json->name = filter_var($json->name , FILTER_SANITIZE_SPECIAL_CHARS);
+        $json->price = filter_var($json->price , FILTER_SANITIZE_SPECIAL_CHARS);
+        $json->description = filter_var($json->description , FILTER_SANITIZE_SPECIAL_CHARS);
+        $json->category = filter_var($json->category , FILTER_SANITIZE_SPECIAL_CHARS);
+        $json->image = filter_var($json->image , FILTER_SANITIZE_SPECIAL_CHARS);
+
+        return $json;
+    }
+
+
     public static function importProductsFromJson($json) {
 
         $products = json_decode($json);
 
         foreach($products as $product) {
 
-            $data = self::sanitize($data);
+            $product_sanitize = self::importProductsFromJsonSanitize($product);
 
             DB::table('products')->insert([            
-                'name' => $product->name,
-                'price' => $product->price,
-                'description' => $product->description,
-                'category' => $product->category,
-                'image_url'=> $product->image
+                'name' => $product_sanitize->name,
+                'price' => $product_sanitize->price,
+                'description' => $product_sanitize->description,
+                'category' => $product_sanitize->category,
+                'image_url'=> $product_sanitize->image
             ]);
             
         }
