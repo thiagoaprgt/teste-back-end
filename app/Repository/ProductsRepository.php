@@ -16,6 +16,18 @@ class ProductsRepository {
         
     }
 
+    public static function sanitize($data) {
+
+        $data->name = filter_var($data->name , FILTER_SANITIZE_SPECIAL_CHARS) ? $data->name : '';
+        $data->price = filter_var($data->price , FILTER_SANITIZE_SPECIAL_CHARS) ? $data->price : 0;
+        $data->description = filter_var($data->description , FILTER_SANITIZE_SPECIAL_CHARS) ? $data->description : '';
+        $data->category = filter_var($data->category , FILTER_SANITIZE_SPECIAL_CHARS)  ? $data->category : 'dont_show_this_product';
+        $data->image_url = filter_var($data->image_url , FILTER_SANITIZE_SPECIAL_CHARS) ? $data->image_url : '';
+
+        return $data;
+
+    }
+
 
 
     public static function getAll() {
@@ -30,8 +42,10 @@ class ProductsRepository {
         
     public static function createProduct($data) {
 
+        $sanitize = self::sanitize($data);
+
         DB::table('products')->insert([            
-            'name' => $data->name,
+            'name' => filter_var($data->name),
             'price' => $data->price,
             'description' => $data->description,
             'category' => $data->category,
@@ -41,7 +55,9 @@ class ProductsRepository {
     }
 
 
-    public static function createCategory($data) {        
+    public static function createCategory($data) {  
+        
+        $data->category = filter_var($data->category , FILTER_SANITIZE_SPECIAL_CHARS, FILTER_SANITIZE_ADD_SLASHES, FILTER_FLAG_STRIP_BACKTICK);
 
         DB::table('products')->insert([            
             'name' => $data->category,
@@ -54,6 +70,8 @@ class ProductsRepository {
     }
 
     public static  function update($data) {
+
+        $data = self::sanitize($data);
 
         DB::table('products')
         ->where('id', $data->id)
@@ -70,6 +88,8 @@ class ProductsRepository {
     }
 
     public static function deleteProduct($data) {
+
+        $data->id = filter_var($data->id , FILTER_SANITIZE_SPECIAL_CHARS);
         
         $product = DB::table('products')
         ->where(['id' => $data->id])
@@ -91,6 +111,7 @@ class ProductsRepository {
     }    
 
     public static function getById($id) {
+        $id = filter_var($id , FILTER_SANITIZE_SPECIAL_CHARS);
         $product = DB::table('products')
         ->where('id', $id)
         ->get();        
@@ -112,6 +133,7 @@ class ProductsRepository {
     }
 
     public static function deleteCategory($data) {
+        $data->category = filter_var($data->category , FILTER_SANITIZE_SPECIAL_CHARS);
         $products = DB::table('products')
         ->where(['category' => $data->category])
         ->delete();
@@ -123,6 +145,8 @@ class ProductsRepository {
         $products = json_decode($json);
 
         foreach($products as $product) {
+
+            $data = self::sanitize($data);
 
             DB::table('products')->insert([            
                 'name' => $product->name,
