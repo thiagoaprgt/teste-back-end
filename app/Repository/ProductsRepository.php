@@ -57,7 +57,7 @@ class ProductsRepository {
 
     public static function createCategory($data) {  
         
-        $data->category = filter_var($data->category , FILTER_SANITIZE_SPECIAL_CHARS, FILTER_SANITIZE_ADD_SLASHES, FILTER_FLAG_STRIP_BACKTICK);
+        $data->category = filter_var($data->category , FILTER_SANITIZE_SPECIAL_CHARS);
 
         DB::table('products')->insert([            
             'name' => $data->category,
