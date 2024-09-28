@@ -25,7 +25,7 @@ function textFileReader(HtmlElementFromInputTextFile) {
 
     reader.readAsText(HtmlElementFromInputTextFile);
 
-    let fileContent = document.querySelectorAll("#fileContent")[0]
+    
     
     reader.addEventListener('load', function() {            
 

@@ -11,52 +11,53 @@
     </head>
     <body>
 
+        <nav class="navbar bg-body-tertiary fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Bara de navegação</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Barra de Navegação</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Logout</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Produtos
+                            </a>
+                            <ul class="dropdown-menu">                            
+                            
+                            <li><a class="dropdown-item" href="/newProducts">Cadastrar Produto</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a download class="dropdown-item" href="../assets/txt/products.txt">Modelo de arquivo para importar</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex mt-3" role="search">
+                        <input  type="file" id="importJsonFromTxt" name="importJsonFromTxt" accept=".txt" class="form-control me-2"  placeholder="file">
+                        <button id="submitUpload" class="btn btn-outline-success">Importar</button>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+        </nav>
+
         <div class="alert alert-info visually-hidden" id="message" role="alert"> </div>
-
-        <input type="hidden" name="_token" value="{{ csrf_token() }}" id="laravelSecurityToken">
-
-        <div class="btn-group usefulButton" role="group" aria-label="Button group with nested dropdown">
-            <button type="button" class="btn btn-danger">
-                <a href="/logout" class="text-white text-decoration-none">Logout</a>
-            </button>
-            <button type="button" class="btn btn-success">
-                <a href="/newProducts" class="text-white text-decoration-none">Cadastrar novos produtos</a>
-            </button>
-
-            <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categoria
-                    </button>
-                <ul class="dropdown-menu">                    
-                    <li class="d-flex align-items-start">
-                        <div>                            
-                        <select id="selectcategories" class="form-select" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
-                            @foreach ($categories as $key => $arrayGroupby)
-                            <option value="{{ $key }}">{{ $key }}</option>
-                            @endforeach
-                                                        
-                        </select>
-                            <a href="/newCategory" class="btn btn-success d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2">➕</a>                            
-                            <button class="btn btn-danger d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2" id="submitDeleteCategory">🗑️</button>                            
-                        </div>
-                                            
-                    </li>
-                </ul>
-            </div>
-        </div>
-
         
-        <div class="importFile">
-            <div>
-                <input type="file" id="importJsonFromTxt" name="importJsonFromTxt" accept=".txt" />
-                <button id="submitUpload">Enviar arquivo .txt de JSON</button>
-            </div>
-
-            <div>                
-                <a download href="../assets/txt/products.txt" download>Baixe esse exemplo de arquivo .txt de um JSON</a>
-            </div>
-        </div>
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" id="laravelSecurityToken">
 
         <table class="table table-striped">
             <tr>
