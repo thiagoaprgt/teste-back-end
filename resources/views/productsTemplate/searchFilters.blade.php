@@ -1,15 +1,15 @@
 <form acticon="/searchFilters" method="POST" class="row g-3">
     <div class="col-md-3">
-      <label for="inputEmail4" class="form-label">ID</label>
-      <input type="number" class="form-control" id="filter_id">
+      <label  class="form-label">ID</label>
+      <input type="number" name="id" class="form-control" id="filter_id">
     </div>
     <div class="col-md-3">
-      <label for="inputPassword4" class="form-label">name</label>
-      <input type="password" class="form-control" id="filter_name">
+      <label  class="form-label">Nome</label>
+      <input type="text" name="name" class="form-control" id="filter_name">
     </div>  
     <div class="col-md-3">
-      <label for="inputState" class="form-label">Categoria</label>
-      <select id="filter_category" class="form-select" aria-label="Default select example">
+      <label  class="form-label">Categoria</label>
+      <select id="filter_category" name="category" class="form-select" aria-label="Default select example">
           
           @foreach ($categories as $key => $arrayGroupby)
           <option value="{{ $key }}">{{ $key }}</option>
@@ -19,7 +19,7 @@
     </div>
     <div class="col-md-3">
       <label for="inputZip" class="form-label">URL da imagem</label>
-      <input type="text" class="form-control" id="filter_image_url">
+      <input type="text" name="image_url" class="form-control" id="filter_image_url">
     </div>
     
     <div class="col-12">

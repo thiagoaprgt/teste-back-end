@@ -174,7 +174,16 @@ class ProductsRepository {
 
     public static function searchFilters($data) {
 
-        dd($data);
+        dd($data); 
+        
+        $sanitize = self::sanitize($data);
+
+        $where [
+            ['id', '=',  $sanitize->id],
+            ['name', 'like', "%" . $sanitize->name . "%"],
+            ['category', '=',  $sanitize->category],
+            ['image_url', '=', $sanitize->image_url]
+        ];
 
         $products = DB::table('products')
             ->where('description', '<>', 'dont_show_this_product')
