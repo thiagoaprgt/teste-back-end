@@ -1,0 +1,33 @@
+[
+
+            {
+                
+                "name": "Picanha",
+                "price": 70,
+                "description": "Muito boa",
+                "category": "carne",
+                "image": "url teste"
+
+            },
+
+            {
+                
+                "name": "Carro",
+                "price": 100,
+                "description": "rápido",
+                "category": "veículo",
+                "image": "url teste 2"
+
+            },
+
+            {
+                
+                "name": "Livro",
+                "price": 12,
+                "description": "interessante",
+                "category": "estudos",
+                "image": "url"
+
+            }
+
+        ]

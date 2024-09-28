@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  
         
         <link rel="stylesheet" href="/assets/css/login.css">
+        <link rel="stylesheet" href="/assets/css/importFile.css">
         <title>Usuario Criado</title>
         @include('bootstrap/css')
     </head>
@@ -14,7 +15,7 @@
 
         <input type="hidden" name="_token" value="{{ csrf_token() }}" id="laravelSecurityToken">
 
-        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        <div class="btn-group usefulButton" role="group" aria-label="Button group with nested dropdown">
             <button type="button" class="btn btn-danger">
                 <a href="/logout" class="text-white text-decoration-none">Logout</a>
             </button>
@@ -46,6 +47,16 @@
         </div>
 
         
+        <div class="importFile">
+            <div>
+                <input type="file" id="importJsonFromTxt" name="importJsonFromTxt" accept=".txt" />
+                <button id="submitUpload">Enviar arquivo .txt de JSON</button>
+            </div>
+
+            <div>                
+                <a download href="../assets/txt/products.txt" download>Baixe esse exemplo de arquivo .txt de um JSON</a>
+            </div>
+        </div>
 
         <table class="table table-striped">
             <tr>
@@ -81,5 +92,6 @@
     @include('bootstrap/js')
 
     <script src="../assets/js/products/getAllProducts.js"></script>
+    <script src="../assets/js/import/importJsonFromTxt.js"></script>
 
 </html>

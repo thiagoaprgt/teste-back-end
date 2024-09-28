@@ -95,6 +95,8 @@ Route::controller(OrderController::class)->group(function () {
         Route::match(['get', 'post'], '/importProducts', [Product::class, 'importProducts']);
         
         Route::match(['get', 'post'], '/teste', [Product::class, 'teste']); 
+
+        Route::match(['get', 'post'], '/importProductsFromTxt', [Product::class, 'importProductsFromTxt']);
         
     }
 

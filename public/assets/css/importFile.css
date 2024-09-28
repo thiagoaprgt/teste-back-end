@@ -1,0 +1,22 @@
+.importFile, .usefulButton {
+    
+    margin: 5px;
+}
+
+.importFile {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+
+.importFile > input, .importFile > div {
+    border: solid 2px;   
+    
+}
+
+.importFile > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

@@ -66,8 +66,37 @@ class Product extends Controller
 
     public static function importProducts(Request $data) {
 
-        ProductsRepository::importProductsFromJson($data->json);
+        $array_string_with_white_spaces = str_split($data->json);
 
+        $array_string_without_white_spaces = array_diff($array_string_with_white_spaces, array(" "));
+
+        $json = implode("", $array_string_without_white_spaces); 
+
+        $json = str_replace('"[' , "[" , $json);
+        
+        $json = str_replace(']"' , "]" , $json);       
+       
+        
+        ProductsRepository::importProductsFromJson($json);
+
+    }
+
+    public static function importProductsFromTxt(Request $data) {
+
+        //$filepath = $data->file('text')->store('products');
+
+        // dd("fajsldk");
+
+        // Storage::move($filepath, '/resources/files/products.txt');
+
+        // $filename = '/resources/files/products.txt';
+        // $handle = fopen($filepath, "r");
+        // $json = fread($handle, filesize($filename));
+        // fclose($handle);        
+        
+        // ProductsRepository::importProductsFromJson($json);
+
+        echo $data->_token;
     }
 
 
