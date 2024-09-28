@@ -170,6 +170,19 @@ class ProductsRepository {
             
         }
 
+    }
+
+    public static function searchFilters($data) {
+
+        dd($data);
+
+        $products = DB::table('products')
+            ->where('description', '<>', 'dont_show_this_product')
+            ->get();           
+        ;
+
+        return $products;
+
         
 
     }

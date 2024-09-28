@@ -81,22 +81,8 @@ class Product extends Controller
 
     }
 
-    public static function importProductsFromTxt(Request $data) {
-
-        //$filepath = $data->file('text')->store('products');
-
-        // dd("fajsldk");
-
-        // Storage::move($filepath, '/resources/files/products.txt');
-
-        // $filename = '/resources/files/products.txt';
-        // $handle = fopen($filepath, "r");
-        // $json = fread($handle, filesize($filename));
-        // fclose($handle);        
-        
-        // ProductsRepository::importProductsFromJson($json);
-
-        echo $data->_token;
+    public static function searchFilters(Request $data) {
+        ProductsRepository::searchFilters($data);       
     }
 
 

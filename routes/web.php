@@ -69,7 +69,7 @@ Route::controller(OrderController::class)->group(function () {
 
         Route::match(['get', 'post'], '/deleteProduct', [Product::class, 'deleteProduct']);
 
-        Route::match(['get', 'post'], 'productsTemplate/getAllProducts', [Product::class, 'getAllProducts']);
+        Route::match(['get', 'post'], 'productsTemplate/getAllProducts', [Product::class, 'getAllProducts']);        
 
         Route::match(['get', 'post'], '/editProduct', [Product::class, 'editProduct']);
         
@@ -97,6 +97,8 @@ Route::controller(OrderController::class)->group(function () {
         Route::match(['get', 'post'], '/teste', [Product::class, 'teste']); 
 
         Route::match(['get', 'post'], '/importProductsFromTxt', [Product::class, 'importProductsFromTxt']);
+
+        Route::match(['get', 'post'], '/searchFilters', [Product::class, 'searchFilters']);
         
     }
 
