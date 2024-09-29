@@ -24,9 +24,8 @@
     
     <div class="col-12">
       <button id="searchFilterSubmit" class="btn btn-primary">Filtrar informações</button>
-      <button class="btn btn-primary">
-        <a class="text-white text-decoration-none" href="../productsTemplate/getAllProducts">Listar todos os produtos</a>
-      </button>
+      
+      <button class="btn btn-primary" onclick="resetFilters()">Limpar filtros de Busca</button>
 
       @include('bootstrap/loading')
 

@@ -143,6 +143,15 @@ async function makeTable(numberOfRows) {
 
 }
 
+function resetFilters() {
+
+    document.querySelectorAll("#filter_id")[0].value = "";
+    document.querySelectorAll("#filter_name")[0].value = "";
+    document.querySelectorAll("#filter_category")[0].value = "allCategories";
+    document.querySelectorAll("#filter_image_url")[0].value = "";
+
+}
+
 
 
 function getTable() {
