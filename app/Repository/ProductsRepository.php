@@ -172,25 +172,35 @@ class ProductsRepository {
 
     }
 
-    public static function searchFilters($data) {        
-        
+    public static function searchFilters($data) {
+
+        $where = [];
+
         $sanitize = self::sanitize($data);
 
-        $where = [
-            ['id', '=',  $sanitize->id],
-            ['name', 'like', "%" . $sanitize->name . "%"],
-            ['category', '=',  $sanitize->category],
-            ['image_url', '=', $sanitize->image_url]
-        ];
+        if(!isset($data->id) && !is_null($data->id)) {
+            array_push($where, ['id', '=',  $sanitize->id]);
+        }
+
+        if(!isset($data->name)) {
+            array_push($where, ['name', 'like', '%' . $sanitize->name . '%']);
+        }
+
+        if(!is_null($data->category)) {
+            array_push($where, ['category', '=',  $sanitize->category]);
+        }
+
+        if(!isset($data->image_url)) {
+            array_push($where, ['image_url', '=',  $sanitize->image_url]);
+        }
 
         $products = DB::table('products')
             ->where('description', '<>', 'dont_show_this_product')
+            ->where($where)
             ->get();           
         ;
 
-        return $products;
-
-        
+        return $products;        
 
     }
 

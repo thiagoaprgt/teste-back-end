@@ -1,4 +1,4 @@
-<form acticon="/searchFilters" method="POST" class="row g-3">
+<div class="row g-3">
     <div class="col-md-3">
       <label  class="form-label">ID</label>
       <input type="number" name="id" class="form-control" id="filter_id">
@@ -23,6 +23,12 @@
     </div>
     
     <div class="col-12">
-      <button type="submit" class="btn btn-primary">Filtrar informações</button>
+      <button id="searchFilterSubmit" class="btn btn-primary">Filtrar informações</button>
+      <button class="btn btn-primary">
+        <a class="text-white text-decoration-none" href="../productsTemplate/getAllProducts">Listar todos os produtos</a>
+      </button>
+
+      @include('bootstrap/loading')
+
     </div>
-  </form>
+</div>

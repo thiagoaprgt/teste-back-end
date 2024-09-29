@@ -87,8 +87,9 @@ Route::controller(OrderController::class)->group(function () {
 
         Route::match(['get', 'post'], '/createCategory', [Product::class, 'saveCategory']);
 
-        Route::match(['get', 'post'], '/deleteCategory', [Product::class, 'deleteCategory']);   
+        Route::match(['get', 'post'], '/deleteCategory', [Product::class, 'deleteCategory']); 
         
+        Route::match(['get', 'post'], '/searchFilters', [Product::class, 'searchFilters']);        
         
         // importando dados para tabelas products
 
@@ -98,7 +99,7 @@ Route::controller(OrderController::class)->group(function () {
 
         Route::match(['get', 'post'], '/importProductsFromTxt', [Product::class, 'importProductsFromTxt']);
 
-        Route::match(['get', 'post'], '/searchFilters', [Product::class, 'searchFilters']);
+        
         
     }
 

@@ -69,8 +69,13 @@ class Product extends Controller
     }
 
     public static function searchFilters(Request $data) {
-        ProductsRepository::searchFilters($data);       
-    }
+        
+        $products = ProductsRepository::searchFilters($data);
+        
+        $categories = ProductsRepository::getAllCategories();
 
+       return json_encode($products, JSON_UNESCAPED_UNICODE);
+       
+    }
 
 }
