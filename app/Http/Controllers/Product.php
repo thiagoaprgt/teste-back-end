@@ -64,21 +64,8 @@ class Product extends Controller
     }
 
 
-    public static function importProducts(Request $data) {
-
-        $array_string_with_white_spaces = str_split($data->json);
-
-        $array_string_without_white_spaces = array_diff($array_string_with_white_spaces, array(" "));
-
-        $json = implode("", $array_string_without_white_spaces); 
-
-        $json = str_replace('"[' , "[" , $json);
-        
-        $json = str_replace(']"' , "]" , $json);       
-       
-        
-        ProductsRepository::importProductsFromJson($json);
-
+    public static function importProducts(Request $data) {        
+        ProductsRepository::importProductsFromJson($data->json);
     }
 
     public static function searchFilters(Request $data) {

@@ -1,9 +1,9 @@
       
-    async function importJson(jsonContenString) {
+    async function importJson(json) {
 
         const form = new FormData();
         form.append('_token', document.querySelectorAll('#laravelSecurityToken')[0].getAttribute('value'));
-        form.append('json', jsonContenString);
+        form.append('json', json);
 
         const response = await fetch("/importProducts", {
             method: "POST",
@@ -12,9 +12,9 @@
 
         await setTimeout(() => {
 
-            window.location.reload();
+            window.location.replace("../productsTemplate/getAllProducts");
             
-        }, 3000);
+        }, 1000);
 
     }
 
@@ -23,26 +23,15 @@ function textFileReader(HtmlElementFromInputTextFile) {
 
     let reader = new FileReader();
 
-    reader.readAsText(HtmlElementFromInputTextFile);
-
+    reader.readAsText(HtmlElementFromInputTextFile);    
     
-    
-    reader.addEventListener('load', function() {            
+    reader.addEventListener('load', function() {   
 
-        const jsonContenString = JSON.stringify(this.result);
+        let formatJson = JSON.parse(this.result);
 
-        const formatJson = jsonContenString.replaceAll(/\\r/g,"")
-            .replaceAll(/\\n/g,"")
-            .replaceAll(/\\/g,"") 
-            .replaceAll(/\\s+$/g,"")                
-        ;
+        formatJson = JSON.stringify(formatJson);
 
-        importJson(jsonContenString.replaceAll(/\\r/g,"")
-            .replaceAll(/\\n/g,"")
-            .replaceAll(/\\/g,"") 
-            .replaceAll(/\\s+$/g,"")
-
-        );       
+        importJson(formatJson);       
 
         console.log(formatJson);
 

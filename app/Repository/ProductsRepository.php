@@ -172,13 +172,11 @@ class ProductsRepository {
 
     }
 
-    public static function searchFilters($data) {
-
-        dd($data); 
+    public static function searchFilters($data) {        
         
         $sanitize = self::sanitize($data);
 
-        $where [
+        $where = [
             ['id', '=',  $sanitize->id],
             ['name', 'like', "%" . $sanitize->name . "%"],
             ['category', '=',  $sanitize->category],
