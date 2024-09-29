@@ -23,7 +23,7 @@
     </div>
     
     <div class="col-12">
-      <button id="searchFilterSubmit" class="btn btn-primary">Filtrar informações</button>
+      <button id="searchFilterSubmit" class="btn btn-primary">Filtrar as informações</button>
 
       <button class="btn btn-primary" onclick="resetFilters()">Reinicar os filtros de Busca</button>
 
