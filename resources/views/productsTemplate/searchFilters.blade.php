@@ -10,7 +10,7 @@
     <div class="col-md-3">
       <label  class="form-label">Categoria</label>
       <select id="filter_category" name="category" class="form-select" aria-label="Default select example">
-          
+        <option value="allCategories" selected>Todas as categorias</option>
           @foreach ($categories as $key => $arrayGroupby)
           <option value="{{ $key }}">{{ $key }}</option>
           @endforeach

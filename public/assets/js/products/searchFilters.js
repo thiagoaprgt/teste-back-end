@@ -22,34 +22,46 @@ searchFilterSubmit.addEventListener('click', async () => {
 
     const json = await response.json();
     console.log(json.length);
+    console.log(json[0]);
 
-    let table = makeTable(json.length);
+    let table = await makeTable(json.length);
     
     let body = document.querySelectorAll('body')[0];
 
     body.insertAdjacentElement('beforeend', table);
-
-    console.log(json);
+    
 
     for (let index = 0; index < json.length; index++) {
-        let tr = document.querySelectorAll('tr')[index];
+        let tr = document.querySelectorAll('.informationRowTable')[index];
 
-        tr.querySelectorAll('td')[0].innerText = json[0].id;
-        tr.querySelectorAll('td')[1].innerText = json[1].name;
-        tr.querySelectorAll('td')[2].innerText = json[2].price;
-        tr.querySelectorAll('td')[3].innerText = json[3].description;
-        tr.querySelectorAll('td')[4].innerText = json[4].category;
-        tr.querySelectorAll('td')[5].innerText = json[5].image_url;
+        tr.querySelectorAll('td')[0].innerText = json[index].id;
+        tr.querySelectorAll('td')[1].innerText = json[index].name;
+        tr.querySelectorAll('td')[2].innerText = json[index].price;
+        tr.querySelectorAll('td')[3].innerText = json[index].description;
+        tr.querySelectorAll('td')[4].innerText = json[index].category;
+        tr.querySelectorAll('td')[5].innerText = json[index].image_url;  
+        
+        let link = document.createElement('a');
+        link.setAttribute('href', '/getProdcutById/' + json[index].id);
+        tr.querySelectorAll('td')[6].appendChild(link);
+        tr.querySelectorAll('td')[6].querySelectorAll('a')[0].innerHTML = '&#x270F;&#xFE0F;';
+
+
+        let button = document.createElement('button');
+        button.setAttribute('onclick', 'deleteProduct(' + json[index].id + ')');
+        tr.querySelectorAll('td')[7].appendChild(button);
+        tr.querySelectorAll('td')[7].querySelectorAll('button')[0].innerHTML = '&#x1F5D1;&#xFE0F;';
+
        
         
     }
 
-    
+    searhFiltersLoading.classList.toggle('invisible');
 
 });
 
 
-function makeTable(tableRowLength) {
+function makeTableHead() {
     let table = document.createElement('table');
     table.setAttribute('class', 'table table-striped');
 
@@ -67,9 +79,7 @@ function makeTable(tableRowLength) {
     } 
     
    
-    tableBody.appendChild(tableRow[0]);;
-    
-    
+    tableBody.appendChild(tableRow[0]);   
     
 
     tableBody.querySelectorAll('th')[0].innerText = 'ID';
@@ -89,32 +99,49 @@ function makeTable(tableRowLength) {
     tableBody.querySelectorAll('th')[7].innerText = 'Excluir';
 
 
+    table.appendChild(tableBody);    
 
-       
+    return table;  
+
+} 
 
 
+function makeTableData(table, tableRowLength) {  
 
-    for (let indexTableRow = tableRow.length; indexTableRow < tableRowLength + indexTableRow; indexTableRow++) {
+    let tableRows = [];
+    
+    let tableBody = table.querySelectorAll('tbody')[0];
+    
 
-        tableRow.push(document.createElement('tr'));
+    for (let indexTableRows = 0; indexTableRows < tableRowLength; indexTableRows++) {  
+
+
+        tableRows.push(document.createElement('tr'))
+        tableRows[indexTableRows].setAttribute('class', 'informationRowTable');
 
         for (let indexTableData = 0; indexTableData < 8; indexTableData++) {
-        
-            tableData.push(document.createElement('td'));
-            tableRow[indexTableRow].appendChild(tableData[indexTableData])
+                       
+            let tableData = document.createElement('td');            
+           
+            tableRows[indexTableRows].appendChild(tableData);                         
             
-        }
+        } 
 
-        tableBody.appendChild(tableRow[indexTableRow]);
-       
+        tableBody.appendChild(tableRows[indexTableRows]);
+
+        
     }
     
+    return table;   
 
-    table.appendChild(tableBody);
-
-    return table;
     
-} 
+}
+
+async function makeTable(numberOfRows) {
+
+    return makeTableData(makeTableHead(), numberOfRows);
+
+}
 
 
 

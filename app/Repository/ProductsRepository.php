@@ -178,20 +178,20 @@ class ProductsRepository {
 
         $sanitize = self::sanitize($data);
 
-        if(!isset($data->id) && !is_null($data->id)) {
+        if(isset($data->id) && !is_null($data->id)) {
             array_push($where, ['id', '=',  $sanitize->id]);
         }
 
-        if(!isset($data->name)) {
+        if(isset($data->name)) {
             array_push($where, ['name', 'like', '%' . $sanitize->name . '%']);
         }
 
-        if(!is_null($data->category)) {
+        if(!is_null($data->category) && $data->category <> 'allCategories') {
             array_push($where, ['category', '=',  $sanitize->category]);
         }
 
-        if(!isset($data->image_url)) {
-            array_push($where, ['image_url', '=',  $sanitize->image_url]);
+        if(isset($data->image_url)) {
+            array_push($where, ['image_url', 'like', '%' .  $sanitize->image_url . '%']);
         }
 
         $products = DB::table('products')
