@@ -25,7 +25,7 @@
     <div class="col-12">
       <button id="searchFilterSubmit" class="btn btn-primary">Filtrar as informações</button>
 
-      <button class="btn btn-primary" onclick="resetFilters()">Reinicar os filtros de Busca</button>
+      <button class="btn btn-primary" onclick="resetFilters()">Reiniciar os filtros de Busca</button>
 
       @include('bootstrap/loading')
 
