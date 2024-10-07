@@ -15,7 +15,7 @@ services:
     container_name: php
     build:
       context: .
-      dockerfile: Dockerfile_php
+      dockerfile: docker/dockerfiles/Dockerfile_php
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
@@ -40,8 +40,8 @@ services:
 
   db:
     build:
-        context: ../docker/dockerfiles
-        dockerfile: Dockerfile_mariadb
+        context: .
+        dockerfile: docker/dockerfiles/Dockerfile_mariadb
     container_name: db
     restart: always
     ports:
